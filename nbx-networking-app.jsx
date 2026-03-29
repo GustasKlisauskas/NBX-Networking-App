@@ -1378,7 +1378,7 @@ export default function App() {
   const screens = { home: HomeScreen, discover: DiscoverScreen, schedule: ScheduleScreen, chat: ChatScreen, profile: ProfileScreen };
   const Screen = screens[screen];
   return (
-    <div style={{ minHeight: "100vh", background: "#12121E", display: "flex", flexDirection: "column", alignItems: "center", padding: "30px 8%", fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif", boxSizing: "border-box" }}>
+    <div style={{ minHeight: "100vh", background: "#12121E", display: "flex", flexDirection: "column", alignItems: "center", padding: "30px 2%", fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif", boxSizing: "border-box" }}>
       <ScrollHideStyle />
       <style>{`@media(max-width:500px){.nbx-phone-wrap{width:100%!important;}.nbx-phone-wrap .nbx-phone{transform-origin:top center;}} @media(min-width:501px){.nbx-phone-wrap{width:375px;}}`}</style>
       <div style={{ textAlign: "center", marginBottom: 28 }}>
