@@ -1390,7 +1390,7 @@ export default function App() {
           <button key={s.id} onClick={() => navigate(s.id)} style={{ padding: "8px 20px", borderRadius: 24, border: "none", cursor: "pointer", background: screen === s.id ? "#EA0030" : "rgba(255,255,255,0.06)", color: screen === s.id ? "#fff" : "#9E9EB3", fontSize: 13, fontWeight: 700 }}>{s.label}</button>
         ))}
       </div>
-      <div className="nbx-phone-wrap" style={{ width: 375, maxWidth: "100%", height: 812 * phoneScale, overflow: "hidden" }}><div className="nbx-phone" ref={phoneRef} style={{ width: 375, height: 812, borderRadius: 44, overflow: "hidden", background: C.bg, position: "relative", boxShadow: "0 25px 60px rgba(0,0,0,0.5), 0 0 0 3px rgba(255,255,255,0.08)", transform: `scale(${phoneScale})`, transformOrigin: "top center" }}>
+      <div className="nbx-phone-wrap" style={{ width: 375, maxWidth: "100%", height: 812 * phoneScale }}><div className="nbx-phone" ref={phoneRef} style={{ width: 375, height: 812, borderRadius: 44, overflow: "hidden", background: C.bg, position: "relative", boxShadow: "0 25px 60px rgba(0,0,0,0.5), 0 0 0 3px rgba(255,255,255,0.08)", transform: `scale(${phoneScale})`, transformOrigin: "top center" }}>
         <Screen onNav={navigate} chatTabHint={chatTabHint} profileData={profileData} setProfileData={setProfileData} />
       </div></div>
       <a href="https://beawhale.io" target="_blank" rel="noopener noreferrer" style={{ color: "#4A4A5C", fontSize: 11, marginTop: 20, textDecoration: "none", cursor: "pointer" }}>Built By BeAWhale</a>
