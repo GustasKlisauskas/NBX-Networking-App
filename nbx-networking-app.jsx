@@ -38,7 +38,7 @@ const PEOPLE = [
 
 // ─── Reusable Components ──────────────────────────────
 const StatusBar = () => (
-  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 24px 4px", color: C.white, fontSize: 12, fontWeight: 600 }}>
+  <div className="nbx-status-bar" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 24px 4px", color: C.white, fontSize: 12, fontWeight: 600 }}>
     <span>9:41</span>
     <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
       <Signal size={12} /><Wifi size={12} /><Battery size={14} />
@@ -222,7 +222,7 @@ const HomeScreen = ({ onNav, profileData, onAction }) => {
   const [bellMuted, setBellMuted] = useState(false);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: 812 }}>
+    <div className="nbx-screen-root" style={{ display: "flex", flexDirection: "column", height: 812 }}>
       <StatusBar />
       <div style={{ padding: "10px 20px 16px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -323,15 +323,21 @@ const HomeScreen = ({ onNav, profileData, onAction }) => {
 
           {(agendaDay === 0 ? [
             { time: "09:00 - 09:45", title: "Opening Keynote", location: "Main Stage", speakers: [{ name: "S. Mentzen", photo: FACE6 }], color: C.amber },
+            { time: "10:00 - 10:45", title: "Tokenomics Masterclass", location: "Track B", speakers: [{ name: "S. Reyes", photo: FACE4 }, { name: "D. Koval", photo: FACE3 }], color: C.pink },
             { time: "11:00 - 11:45", title: "DeFi Panel Discussion", location: "Track A", speakers: [{ name: "V. Buterin", photo: FACE7 }, { name: "S. Nazarov", photo: FACE3 }, { name: "R. Leshner", photo: FACE1 }, { name: "H. Adams", photo: FACE5 }], color: C.amber },
             { time: "12:00 - 13:00", title: "Pitch Arena - Round 2", location: "Main Stage", speakers: [], color: C.pink },
             { time: "13:30 - 14:30", title: "Speed Dating: Investors", location: "Networking Hall", speakers: [], color: C.red },
+            { time: "15:00 - 15:45", title: "Layer 2 Scaling Solutions", location: "Track A", speakers: [{ name: "M. Teller", photo: FACE1 }, { name: "E. Voss", photo: FACE2 }], color: C.amber },
             { time: "15:30 - 16:15", title: "Regulation & Compliance", location: "Track B", speakers: [{ name: "E. Voss", photo: FACE2 }, { name: "N. Bergmann", photo: FACE5 }, { name: "K. Haun", photo: FACE8 }], color: C.amber },
+            { time: "17:00 - 18:00", title: "VIP Networking Dinner", location: "Rooftop Terrace", speakers: [], color: C.red },
           ] : [
             { time: "09:30 - 10:15", title: "State of Web3 in 2026", location: "Main Stage", speakers: [{ name: "C. Dixon", photo: FACE6 }, { name: "B. Armstrong", photo: FACE1 }], color: C.amber },
+            { time: "10:30 - 11:00", title: "RWA Tokenization Deep Dive", location: "Track B", speakers: [{ name: "N. Bergmann", photo: FACE5 }], color: C.pink },
             { time: "11:00 - 11:45", title: "NFTs & Digital Identity", location: "Track A", speakers: [{ name: "D. Koval", photo: FACE3 }, { name: "S. Reyes", photo: FACE4 }, { name: "M. Teller", photo: FACE1 }], color: C.amber },
             { time: "12:30 - 13:15", title: "ZK Proofs Workshop", location: "Track B", speakers: [{ name: "A. Gabizon", photo: FACE7 }, { name: "E. Ben-Sasson", photo: FACE6 }], color: C.pink },
+            { time: "13:30 - 14:00", title: "DAO Governance Models", location: "Track A", speakers: [{ name: "S. Nazarov", photo: FACE3 }, { name: "K. Haun", photo: FACE8 }], color: C.amber },
             { time: "14:00 - 15:00", title: "Founder Fireside Chat", location: "Main Stage", speakers: [{ name: "V. Buterin", photo: FACE7 }], color: C.red },
+            { time: "15:30 - 16:00", title: "Cross-Chain Interoperability", location: "Track B", speakers: [{ name: "R. Leshner", photo: FACE1 }, { name: "H. Adams", photo: FACE5 }], color: C.pink },
             { time: "16:00 - 17:00", title: "Closing & Networking", location: "Rooftop Terrace", speakers: [], color: C.amber },
           ]).map((a, i) => (
             <div key={i} style={{
@@ -398,7 +404,7 @@ const DiscoverScreen = ({ onNav, onSubTab, onAction }) => {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: 812, position: "relative" }}>
+    <div className="nbx-screen-root" style={{ display: "flex", flexDirection: "column", height: 812, position: "relative" }}>
       <StatusBar />
       <AppHeader title="Connect" />
       <div style={{ display: "flex", gap: 6, padding: "0 20px 12px" }}>
@@ -629,7 +635,7 @@ const ScheduleScreen = ({ onNav, onSubTab, onAction }) => {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: 812, position: "relative" }}>
+    <div className="nbx-screen-root" style={{ display: "flex", flexDirection: "column", height: 812, position: "relative" }}>
       <StatusBar />
       <AppHeader title="Meetings" right={<Avatar src={GUS} size={32} ring={C.red} />} />
       <div style={{ display: "flex", gap: 8, padding: "0 20px 12px" }}>
@@ -893,7 +899,7 @@ const ChatScreen = ({ onNav, chatTabHint, openChatHint, onSubTab, onAction }) =>
     const data = chatData[activeChat];
     const allMessages = [...data.messages, ...(localMessages[activeChat] || [])];
     return (
-      <div style={{ display: "flex", flexDirection: "column", height: 812, position: "relative" }}>
+      <div className="nbx-screen-root" style={{ display: "flex", flexDirection: "column", height: 812, position: "relative" }}>
         <StatusBar />
         <div style={{ padding: "8px 16px 10px", display: "flex", alignItems: "center", gap: 10, borderBottom: "1px solid " + C.border }}>
           <button onClick={() => setActiveChat(null)} style={{ background: "none", border: "none", cursor: "pointer", padding: 4, display: "flex", alignItems: "center" }}>
@@ -1030,7 +1036,7 @@ const ChatScreen = ({ onNav, chatTabHint, openChatHint, onSubTab, onAction }) =>
 
   // Chat list view with tabs
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: 812, position: "relative" }}>
+    <div className="nbx-screen-root" style={{ display: "flex", flexDirection: "column", height: 812, position: "relative" }}>
       <StatusBar />
       <AppHeader title="Chat" right={<Avatar src={GUS} size={32} ring={C.red} />} />
       <div style={{ display: "flex", gap: 6, padding: "0 20px 12px" }}>
@@ -1249,7 +1255,7 @@ const ProfileScreen = ({ onNav, profileData, setProfileData, onAction }) => {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: 812, position: "relative" }}>
+    <div className="nbx-screen-root" style={{ display: "flex", flexDirection: "column", height: 812, position: "relative" }}>
       <StatusBar />
       <AppHeader title="Profile" right={
         <button onClick={() => { if (editing) { setProfile(editDraft); setEditing(false); } else { setEditDraft(profile); setEditing(true); } if(onAction) onAction("edit-profile"); }} style={{ padding: "7px 14px", borderRadius: 10, border: "none", cursor: "pointer", background: editing ? C.green + "20" : C.surface, color: editing ? C.green : C.muted, fontSize: 12, fontWeight: 700, display: "flex", alignItems: "center", gap: 5 }}>
@@ -1470,6 +1476,7 @@ export default function App() {
   const phoneRef = React.useRef(null);
   const [phoneScale, setPhoneScale] = useState(1);
   const [showPanel, setShowPanel] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [panelAnim, setPanelAnim] = useState(false);
   const prevInfoKey = React.useRef(null);
   React.useEffect(() => {
@@ -1480,6 +1487,7 @@ export default function App() {
         setPhoneScale(Math.min(1, wrapW / 375));
       }
       setShowPanel(window.innerWidth >= 900);
+      setIsMobile(window.innerWidth <= 500);
     };
     update();
     window.addEventListener("resize", update);
@@ -1522,12 +1530,22 @@ export default function App() {
   }, [infoKey]);
   const screens = { home: HomeScreen, discover: DiscoverScreen, schedule: ScheduleScreen, chat: ChatScreen, profile: ProfileScreen };
   const Screen = screens[screen];
+  if (isMobile) {
+    return (
+      <div style={{ width: "100vw", height: "100dvh", overflow: "hidden", background: C.bg, position: "fixed", top: 0, left: 0, fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif" }}>
+        <ScrollHideStyle />
+        <style>{`
+          .nbx-status-bar { display: none !important; }
+          .nbx-screen-root { height: 100dvh !important; }
+        `}</style>
+        <Screen onNav={navigate} onSubTab={setSubTab} onAction={handleAction} chatTabHint={chatTabHint} openChatHint={openChatHint} profileData={profileData} setProfileData={setProfileData} />
+      </div>
+    );
+  }
   return (
     <div style={{ minHeight: "100vh", background: "#12121E", display: "flex", flexDirection: "column", alignItems: "center", padding: "30px 2%", fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif", boxSizing: "border-box" }}>
       <ScrollHideStyle />
       <style>{`
-        @media(max-width:500px){.nbx-phone-wrap{width:100%!important;}.nbx-phone-wrap .nbx-phone{transform-origin:top center;}}
-        @media(min-width:501px){.nbx-phone-wrap{width:375px;}}
         @keyframes nbxPanelFadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
         .nbx-panel-anim { animation: nbxPanelFadeIn 0.4s ease-out; }
         @keyframes nbxBulletHighlight { 0% { color: #7A7A8E; } 10% { color: #C8C8D4; } 90% { color: #C8C8D4; } 100% { color: #7A7A8E; } }
@@ -1543,7 +1561,7 @@ export default function App() {
         ))}
       </div>
       <div style={{ display: "flex", alignItems: "flex-start", gap: showPanel ? 60 : 0, justifyContent: "center", width: "100%", maxWidth: 900 }}>
-        <div className="nbx-phone-wrap" style={{ width: 375, maxWidth: showPanel ? 375 : "100%", flexShrink: 0, height: 812 * phoneScale }}><div className="nbx-phone" ref={phoneRef} style={{ width: 375, height: 812, borderRadius: 44, overflow: "hidden", background: C.bg, position: "relative", boxShadow: "0 25px 60px rgba(0,0,0,0.5), 0 0 0 3px rgba(255,255,255,0.08)", transform: `scale(${phoneScale})`, transformOrigin: "top center" }}>
+        <div className="nbx-phone-wrap" style={{ width: 375, flexShrink: 0, height: 812 * phoneScale }}><div className="nbx-phone" ref={phoneRef} style={{ width: 375, height: 812, borderRadius: 44, overflow: "hidden", background: C.bg, position: "relative", boxShadow: "0 25px 60px rgba(0,0,0,0.5), 0 0 0 3px rgba(255,255,255,0.08)", transform: `scale(${phoneScale})`, transformOrigin: "top center" }}>
           <Screen onNav={navigate} onSubTab={setSubTab} onAction={handleAction} chatTabHint={chatTabHint} openChatHint={openChatHint} profileData={profileData} setProfileData={setProfileData} />
         </div></div>
         {showPanel && (
